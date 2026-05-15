@@ -1,56 +1,55 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, X, Minus } from "lucide-react";
 
 const rows = [
   {
-    dimension: "基础设施",
-    selfBuild: "自行搭建维护",
-    workflow: "需配置编排",
-    cloudsway: "全托管，API 即用",
+    dimension: "Infrastructure",
+    selfBuild: "Build and maintain yourself",
+    workflow: "Requires configuration",
+    cloudsway: "Fully managed, API-ready",
     cloudswayBest: true,
   },
   {
-    dimension: "搜索能力",
-    selfBuild: "外采第三方",
-    workflow: "外采第三方",
-    cloudsway: "自研搜索引擎，原生集成",
+    dimension: "Search",
+    selfBuild: "Third-party procurement",
+    workflow: "Third-party procurement",
+    cloudsway: "Proprietary engine, natively integrated",
     cloudswayBest: true,
   },
   {
-    dimension: "执行环境",
-    selfBuild: "自建沙箱",
-    workflow: "无 / 有限",
-    cloudsway: "内置安全沙箱",
+    dimension: "Execution Env",
+    selfBuild: "Build sandbox yourself",
+    workflow: "None / Limited",
+    cloudsway: "Built-in secure sandbox",
     cloudswayBest: true,
   },
   {
-    dimension: "模型灵活性",
-    selfBuild: "单一绑定",
-    workflow: "单一绑定",
-    cloudsway: "多模型灵活调度",
+    dimension: "Model Flexibility",
+    selfBuild: "Single vendor lock-in",
+    workflow: "Single vendor lock-in",
+    cloudsway: "Multi-model orchestration",
     cloudswayBest: true,
   },
   {
-    dimension: "任务规划",
-    selfBuild: "手动编排",
-    workflow: "固定 workflow",
-    cloudsway: "Plan Mode 自动拆解并发",
+    dimension: "Task Planning",
+    selfBuild: "Manual orchestration",
+    workflow: "Fixed workflow",
+    cloudsway: "Auto-decompose & parallel execution",
     cloudswayBest: true,
   },
   {
-    dimension: "记忆能力",
-    selfBuild: "自行实现",
-    workflow: "无",
-    cloudsway: "内置长期记忆",
+    dimension: "Memory",
+    selfBuild: "Build yourself",
+    workflow: "None",
+    cloudsway: "Built-in long-term memory",
     cloudswayBest: true,
   },
   {
-    dimension: "上手成本",
-    selfBuild: "数周",
-    workflow: "数天",
-    cloudsway: "分钟级",
+    dimension: "Time to Integrate",
+    selfBuild: "Weeks",
+    workflow: "Days",
+    cloudsway: "Minutes",
     cloudswayBest: true,
   },
 ];
@@ -69,10 +68,10 @@ export default function WhyUs() {
             Why Us
           </p>
           <h2 className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">
-            为什么选择 Cloudsway Agent
+            Why Cloudsway Agent
           </h2>
           <p className="mx-auto max-w-2xl text-muted-foreground">
-            对比自建 Agent、Workflow 编排框架和 Cloudsway Agent API 的全方位差异。
+            A full comparison between building your own Agent, workflow orchestration frameworks, and Cloudsway Agent API.
           </p>
         </motion.div>
 
@@ -86,16 +85,16 @@ export default function WhyUs() {
             <thead>
               <tr>
                 <th className="border-b border-border bg-muted px-6 py-4 text-left text-sm font-medium text-muted-foreground">
-                  维度
+                  Dimension
                 </th>
                 <th className="border-b border-border bg-muted px-6 py-4 text-left text-sm font-medium text-muted-foreground">
-                  自建 Agent
+                  Self-built Agent
                 </th>
                 <th className="border-b border-border bg-muted px-6 py-4 text-left text-sm font-medium text-muted-foreground">
-                  Workflow 框架
+                  Workflow Framework
                 </th>
                 <th className="border-b border-border bg-primary/5 px-6 py-4 text-left text-sm font-semibold text-primary">
-                  Cloudsway Agent API ✦
+                  Cloudsway Agent API &#x2726;
                 </th>
               </tr>
             </thead>

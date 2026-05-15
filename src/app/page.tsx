@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import Capabilities from "@/components/Capabilities";
+import DeveloperExperience from "@/components/DeveloperExperience";
 import Performance from "@/components/Performance";
 import WhyUs from "@/components/WhyUs";
 import UseCases from "@/components/UseCases";
@@ -17,6 +18,7 @@ export default function Home() {
         <Hero />
         <HowItWorks />
         <Capabilities />
+        <DeveloperExperience />
         <Performance />
         <WhyUs />
         <UseCases />

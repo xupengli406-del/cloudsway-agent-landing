@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, MessageSquare } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
 
 export default function BottomCTA() {
   return (
@@ -14,25 +14,27 @@ export default function BottomCTA() {
           className="text-center"
         >
           <h2 className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">
-            让 AI Agent 为你工作
+            Let AI Agents Work for You
           </h2>
           <p className="mx-auto mb-8 max-w-xl text-lg text-muted-foreground">
-            一次 API 调用，完整研究报告。告别重复劳动，从今天开始。
+            One API call. Complete research report. Say goodbye to repetitive work — start today.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="mailto:contact@cloudsway.ai"
+              href="https://console.cloudsway.ai"
               className="inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-3.5 text-sm font-medium text-white transition-colors hover:bg-primary-hover"
             >
-              申请试用
+              Get Started Free
               <ArrowRight size={16} />
             </a>
             <a
-              href="mailto:contact@cloudsway.ai"
+              href="https://docs.cloudsway.ai"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg border border-border bg-white px-8 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
             >
-              <MessageSquare size={16} />
-              联系我们
+              <FileText size={16} />
+              Read the Docs
             </a>
           </div>
         </motion.div>

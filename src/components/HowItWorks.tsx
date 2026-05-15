@@ -7,31 +7,31 @@ const steps = [
   {
     icon: <ArrowRight size={20} />,
     label: "API Request",
-    desc: "一次调用，提交任务",
+    desc: "One call, submit your task",
     color: "bg-blue-50 text-blue-600",
   },
   {
     icon: <Brain size={20} />,
     label: "Agent Core",
-    desc: "智能规划，拆解子任务",
+    desc: "Plan and decompose subtasks",
     color: "bg-purple-50 text-purple-600",
   },
   {
     icon: <Search size={20} />,
     label: "Search",
-    desc: "自研搜索引擎",
+    desc: "Proprietary search engine",
     color: "bg-emerald-50 text-emerald-600",
   },
   {
     icon: <Box size={20} />,
     label: "Sandbox",
-    desc: "安全代码执行",
+    desc: "Secure code execution",
     color: "bg-orange-50 text-orange-600",
   },
   {
     icon: <Database size={20} />,
     label: "Memory",
-    desc: "跨会话记忆",
+    desc: "Cross-session persistence",
     color: "bg-pink-50 text-pink-600",
   },
 ];
@@ -50,10 +50,10 @@ export default function HowItWorks() {
             How It Works
           </p>
           <h2 className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">
-            一次 API 调用，Agent 自主完成全部工作
+            One API call. Agent handles everything.
           </h2>
           <p className="mx-auto max-w-2xl text-muted-foreground">
-            无需管理搜索、模型、执行环境的复杂性。Agent 自动规划任务、调用工具、综合分析、输出结果。
+            No need to manage search, models, or execution environments. The Agent automatically plans tasks, invokes tools, synthesizes analysis, and delivers results.
           </p>
         </motion.div>
 
@@ -98,10 +98,10 @@ export default function HowItWorks() {
             <div className="mt-10 rounded-xl border border-border bg-white p-6">
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
-                  ✓
+                  &#x2713;
                 </span>
                 <span>
-                  <strong className="text-foreground">Structured Result</strong> — 结构化研究报告 + 引用来源 + 执行轨迹
+                  <strong className="text-foreground">Structured Result</strong> — Research report + cited sources + execution trace
                 </span>
               </div>
             </div>

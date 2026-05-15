@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "95%", label: "研究完整性评分", sub: "Completeness Score" },
-  { value: "<3min", label: "平均研究完成时间", sub: "Avg. Completion Time" },
-  { value: "20+", label: "平均引用信源数量", sub: "Avg. Sources Cited" },
-  { value: "10K+", label: "平均输出字数", sub: "Avg. Output Length" },
+  { value: "95%", label: "Completeness Score", sub: "Research quality benchmark" },
+  { value: "<3min", label: "Avg. Completion Time", sub: "End-to-end execution" },
+  { value: "20+", label: "Avg. Sources Cited", sub: "Per research task" },
+  { value: "10K+", label: "Avg. Output Length", sub: "Words per report" },
 ];
 
 export default function Performance() {
@@ -26,7 +26,7 @@ export default function Performance() {
             Performance Highlights
           </h2>
           <p className="mx-auto max-w-2xl text-muted-foreground">
-            基于内部评测的关键指标。评测框架覆盖最终结果质量、执行过程质量和工程体验三个层次。
+            Based on internal benchmarks covering result quality, execution process, and developer experience.
           </p>
         </motion.div>
 
@@ -55,10 +55,10 @@ export default function Performance() {
           className="mt-8 text-center"
         >
           <a
-            href="#contact"
+            href="https://docs.cloudsway.ai/benchmarks"
             className="text-sm font-medium text-primary transition-colors hover:text-primary-hover"
           >
-            查看完整评测报告 →
+            View full evaluation report &#x2192;
           </a>
         </motion.div>
       </div>

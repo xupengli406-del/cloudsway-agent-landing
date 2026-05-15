@@ -7,9 +7,9 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { label: "Product", href: "#capabilities" },
   { label: "How It Works", href: "#how-it-works" },
-  { label: "Performance", href: "#performance" },
   { label: "Use Cases", href: "#use-cases" },
   { label: "Pricing", href: "#pricing" },
+  { label: "Docs", href: "https://docs.cloudsway.ai", external: true },
 ];
 
 export default function Navigation() {
@@ -31,6 +31,7 @@ export default function Navigation() {
             <a
               key={l.href}
               href={l.href}
+              {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               {l.label}
@@ -40,13 +41,13 @@ export default function Navigation() {
 
         <div className="hidden items-center gap-3 md:flex">
           <a
-            href="#contact"
+            href="mailto:contact@cloudsway.ai"
             className="rounded-lg px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            Contact Us
+            Contact
           </a>
           <a
-            href="#contact"
+            href="https://console.cloudsway.ai"
             className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-hover"
           >
             Get Started
@@ -75,6 +76,7 @@ export default function Navigation() {
                 <a
                   key={l.href}
                   href={l.href}
+                  {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   onClick={() => setMobileOpen(false)}
                   className="rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 >
@@ -82,11 +84,11 @@ export default function Navigation() {
                 </a>
               ))}
               <div className="mt-3 flex flex-col gap-2 border-t border-border pt-3">
-                <a href="#contact" className="rounded-lg px-3 py-2 text-sm text-muted-foreground">
-                  Contact Us
+                <a href="mailto:contact@cloudsway.ai" className="rounded-lg px-3 py-2 text-sm text-muted-foreground">
+                  Contact
                 </a>
                 <a
-                  href="#contact"
+                  href="https://console.cloudsway.ai"
                   className="rounded-lg bg-primary px-3 py-2 text-center text-sm font-medium text-white"
                 >
                   Get Started

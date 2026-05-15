@@ -26,20 +26,20 @@ const tabs = [
     number: "01",
     title: "Autonomous Research from Question to Report",
     description:
-      "提交研究问题，Agent 自主搜索多个信息源、交叉验证、综合分析，输出带引用的结构化研究报告。",
+      "Submit a research question — the Agent autonomously searches multiple sources, cross-validates findings, synthesizes analysis, and outputs a structured report with full citations.",
     code: `curl -X POST https://api.cloudsway.ai/v1/run \\
-  -H "Authorization: Bearer <your-key>" \\
+  -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
-    "query": "AI Agent API 市场竞争格局分析",
+    "query": "Competitive landscape of AI Agent APIs in 2025",
     "mode": "deep_research"
   }'`,
     features: [
-      { icon: <Search size={18} />, title: "多源信息综合", desc: "自动搜索、筛选、交叉验证多个信息源" },
-      { icon: <GitBranch size={18} />, title: "计划式执行", desc: "智能规划研究步骤，子任务并行执行" },
-      { icon: <Quote size={18} />, title: "引用溯源", desc: "每个结论附带可追溯引用来源" },
-      { icon: <Brain size={18} />, title: "长期记忆", desc: "跨会话知识积累，越用越懂你的领域" },
-      { icon: <Globe size={18} />, title: "多语言研究", desc: "原生支持中英文及多语言检索与综合" },
+      { icon: <Search size={18} />, title: "Multi-source Synthesis", desc: "Automatically searches, filters, and cross-validates multiple sources" },
+      { icon: <GitBranch size={18} />, title: "Plan-based Execution", desc: "Intelligently plans research steps with parallel subtask execution" },
+      { icon: <Quote size={18} />, title: "Citation Tracing", desc: "Every conclusion backed by traceable source citations" },
+      { icon: <Brain size={18} />, title: "Long-term Memory", desc: "Cross-session knowledge accumulation — gets smarter over time" },
+      { icon: <Globe size={18} />, title: "Multi-language Research", desc: "Native support for multilingual retrieval and synthesis" },
     ],
   },
   {
@@ -48,29 +48,29 @@ const tabs = [
     number: "02",
     title: "Turn Raw Data into Actionable Insights",
     description:
-      "上传数据或描述分析需求，Agent 在安全沙箱中执行代码分析，自动生成可视化图表和结构化洞察报告。",
+      "Upload data or describe your analysis needs — the Agent runs code in a secure sandbox, automatically generates visualizations and structured insight reports.",
     code: `curl -X POST https://api.cloudsway.ai/v1/run \\
-  -H "Authorization: Bearer <your-key>" \\
+  -H "Authorization: Bearer YOUR_API_KEY" \\
   -F "file=@data.csv" \\
   -F 'config={
     "mode": "deep_analysis",
-    "goal": "找出销售数据中的季度趋势和异常"
+    "goal": "Find quarterly trends and anomalies in sales data"
   }'`,
     features: [
-      { icon: <Code2 size={18} />, title: "代码执行沙箱", desc: "安全隔离环境运行数据分析代码" },
-      { icon: <TrendingUp size={18} />, title: "模式识别", desc: "自动发现数据中的趋势、异常和关联" },
-      { icon: <BarChart3 size={18} />, title: "可视化生成", desc: "自动生成图表和可视化报告" },
-      { icon: <FileInput size={18} />, title: "多格式输入", desc: "支持 PDF/Word/PPT/CSV/代码等" },
-      { icon: <LayoutList size={18} />, title: "结构化输出", desc: "输出可操作的分析结果与建议" },
+      { icon: <Code2 size={18} />, title: "Code Execution Sandbox", desc: "Secure isolated environment for running data analysis code" },
+      { icon: <TrendingUp size={18} />, title: "Pattern Recognition", desc: "Automatically discovers trends, anomalies, and correlations in data" },
+      { icon: <BarChart3 size={18} />, title: "Visualization Generation", desc: "Auto-generates charts and visual reports" },
+      { icon: <FileInput size={18} />, title: "Multi-format Input", desc: "Supports PDF, Word, PPT, CSV, and source code" },
+      { icon: <LayoutList size={18} />, title: "Structured Output", desc: "Delivers actionable analysis results and recommendations" },
     ],
   },
 ];
 
 const baseCapabilities = [
-  { icon: <Database size={18} />, title: "Agent Memory", desc: "跨会话持久记忆，积累领域知识，越用越精准" },
-  { icon: <FileText size={18} />, title: "文件处理", desc: "PDF/Word/PPT/CSV/代码，多格式无缝导入" },
-  { icon: <Box size={18} />, title: "沙箱执行", desc: "安全隔离的代码执行与文件生成环境" },
-  { icon: <Cpu size={18} />, title: "多模型支持", desc: "灵活调度最优模型组合，不锁定单一供应商" },
+  { icon: <Database size={18} />, title: "Agent Memory", desc: "Cross-session persistent memory that accumulates domain knowledge" },
+  { icon: <FileText size={18} />, title: "File Processing", desc: "PDF, Word, PPT, CSV, and code — multi-format seamless import" },
+  { icon: <Box size={18} />, title: "Sandbox Execution", desc: "Secure isolated code execution and file generation environment" },
+  { icon: <Cpu size={18} />, title: "Multi-model Support", desc: "Flexible model orchestration across providers — no vendor lock-in" },
 ];
 
 export default function Capabilities() {
@@ -89,9 +89,9 @@ export default function Capabilities() {
           <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
             What We Offer
           </p>
-          <h2 className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">核心能力</h2>
+          <h2 className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">Core Capabilities</h2>
           <p className="mx-auto max-w-2xl text-muted-foreground">
-            Deep Research 和 Deep Analysis 两大核心模式，加上完整的基础能力支撑。
+            Two powerful modes — Deep Research and Deep Analysis — backed by a complete infrastructure stack.
           </p>
         </motion.div>
 

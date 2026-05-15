@@ -18,8 +18,9 @@ export default function Footer() {
 
           <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
             <a href="#capabilities" className="transition-colors hover:text-foreground">Product</a>
-            <a href="#how-it-works" className="transition-colors hover:text-foreground">How It Works</a>
             <a href="#pricing" className="transition-colors hover:text-foreground">Pricing</a>
+            <a href="https://docs.cloudsway.ai" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">Docs</a>
+            <a href="https://console.cloudsway.ai" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">Console</a>
             <a href="mailto:contact@cloudsway.ai" className="transition-colors hover:text-foreground">Contact</a>
           </div>
 
@@ -52,7 +53,7 @@ export default function Footer() {
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-xs text-muted-foreground md:flex-row">
           <p>&copy; {new Date().getFullYear()} Cloudsway Pte. Ltd. All rights reserved.</p>
           <div className="flex gap-4">
-            <a href="#" className="transition-colors hover:text-foreground">Terms of Use</a>
+            <a href="#" className="transition-colors hover:text-foreground">Terms of Service</a>
             <a href="#" className="transition-colors hover:text-foreground">Privacy Policy</a>
           </div>
         </div>
