@@ -1,27 +1,27 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-12">
+    <footer className="bg-foreground border-t border-white/10">
+      <div className="mx-auto max-w-[1440px] px-8 py-12">
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           <div>
-            <a href="/" className="flex items-center gap-2 text-lg font-semibold text-foreground">
+            <a href="/" className="flex items-center gap-2.5 text-lg font-semibold tracking-tight text-white">
               <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
-                <rect width="28" height="28" rx="6" fill="#2563EB" />
-                <path d="M8 14l4 4 8-8" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                <rect width="28" height="28" rx="8" fill="#ffffff" />
+                <path d="M8 14l4 4 8-8" stroke="#171717" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               Cloudsway
             </a>
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="mt-2 text-sm text-white/50">
               Fully Managed Agent API
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
-            <a href="#capabilities" className="transition-colors hover:text-foreground">Product</a>
-            <a href="#pricing" className="transition-colors hover:text-foreground">Pricing</a>
-            <a href="https://docs.cloudsway.ai" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">Docs</a>
-            <a href="https://console.cloudsway.ai" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">Console</a>
-            <a href="mailto:contact@cloudsway.ai" className="transition-colors hover:text-foreground">Contact</a>
+          <div className="flex flex-wrap items-center gap-6 text-sm text-white/50">
+            <a href="#capabilities" className="transition-colors hover:text-white">Product</a>
+            <a href="#pricing" className="transition-colors hover:text-white">Pricing</a>
+            <a href="https://docs.cloudsway.ai" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white">Docs</a>
+            <a href="https://console.cloudsway.ai" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white">Console</a>
+            <a href="mailto:contact@cloudsway.ai" className="transition-colors hover:text-white">Contact</a>
           </div>
 
           <div className="flex items-center gap-4">
@@ -29,7 +29,7 @@ export default function Footer() {
               href="https://x.com/CloudswayAI"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground transition-colors hover:text-foreground"
+              className="text-white/40 transition-colors hover:text-white"
               aria-label="X (Twitter)"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -40,7 +40,7 @@ export default function Footer() {
               href="https://www.linkedin.com/company/cloudsway-ai/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground transition-colors hover:text-foreground"
+              className="text-white/40 transition-colors hover:text-white"
               aria-label="LinkedIn"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -50,11 +50,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-xs text-muted-foreground md:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-[12px] text-white/40 md:flex-row">
           <p>&copy; {new Date().getFullYear()} Cloudsway Pte. Ltd. All rights reserved.</p>
           <div className="flex gap-4">
-            <a href="#" className="transition-colors hover:text-foreground">Terms of Service</a>
-            <a href="#" className="transition-colors hover:text-foreground">Privacy Policy</a>
+            <a href="#" className="transition-colors hover:text-white">Terms of Service</a>
+            <a href="#" className="transition-colors hover:text-white">Privacy Policy</a>
           </div>
         </div>
       </div>

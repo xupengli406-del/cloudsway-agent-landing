@@ -41,7 +41,6 @@ export default function AgentDemo() {
     setCurrentStep(0);
     setShowResults(false);
 
-    let stepIndex = 0;
     let totalDelay = 0;
 
     steps.forEach((step, i) => {
@@ -65,21 +64,21 @@ export default function AgentDemo() {
   }
 
   return (
-    <section className="bg-white py-16 lg:py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="bg-accent py-20 lg:py-28">
+      <div className="mx-auto max-w-[1440px] px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-10 text-center"
+          className="mb-12 text-center"
         >
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
-            Try an Agent Workflow
+          <p className="mb-3 text-[13px] font-semibold uppercase tracking-widest text-primary">
+            Live Demo
           </p>
-          <h2 className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground lg:text-[2.5rem]">
             See How the Agent Works
           </h2>
-          <p className="mx-auto max-w-2xl text-muted-foreground">
+          <p className="mx-auto max-w-2xl text-[16px] text-muted-foreground">
             Ask the agent to research a company, compare products, analyze market trends, or generate a structured report.
           </p>
         </motion.div>
@@ -88,15 +87,15 @@ export default function AgentDemo() {
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mx-auto max-w-4xl overflow-hidden rounded-2xl border border-border bg-white shadow-xl"
+          className="mx-auto max-w-4xl overflow-hidden rounded-2xl bg-white shadow-[0_16px_48px_-12px_rgba(0,0,0,0.1)]"
         >
-          <div className="border-b border-border bg-muted/50 px-6 py-4">
+          <div className="border-b border-border/60 px-6 py-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
-                <Sparkles size={16} className="text-primary" />
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground">
+                <Sparkles size={14} className="text-white" />
               </div>
               <span className="text-sm font-semibold text-foreground">Cloudsway Agent</span>
-              <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">
+              <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-medium text-emerald-700">
                 Deep Research
               </span>
             </div>
@@ -108,13 +107,13 @@ export default function AgentDemo() {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="flex-1 rounded-lg border border-border bg-muted/30 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                className="flex-1 rounded-xl border border-border bg-accent px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-foreground focus:outline-none"
                 placeholder="Describe your research task..."
               />
               <button
                 onClick={handleRun}
                 disabled={isRunning}
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-primary-hover disabled:opacity-50"
+                className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-80 disabled:opacity-40"
               >
                 Run
                 <ArrowRight size={14} />
@@ -126,7 +125,7 @@ export default function AgentDemo() {
                 <button
                   key={q}
                   onClick={() => { setQuery(q); handleRun(); }}
-                  className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                  className="rounded-full border border-border px-3.5 py-1.5 text-[12px] text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
                 >
                   {q.length > 50 ? q.slice(0, 50) + "..." : q}
                 </button>
@@ -152,29 +151,29 @@ export default function AgentDemo() {
                           x: 0,
                         }}
                         transition={{ delay: i * 0.1 }}
-                        className="flex items-center gap-3 rounded-lg border border-border p-3"
+                        className="flex items-center gap-3 rounded-xl bg-accent p-3.5"
                       >
-                        <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${
+                        <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${
                           i < currentStep
                             ? "bg-emerald-100 text-emerald-600"
                             : i === currentStep
-                              ? "bg-primary/10 text-primary"
-                              : "bg-muted text-muted-foreground"
+                              ? "bg-foreground text-white"
+                              : "bg-border text-muted-foreground"
                         }`}>
                           <step.icon size={16} />
                         </div>
                         <div className="flex-1">
                           <p className="text-sm font-medium text-foreground">{step.label}</p>
-                          <p className="text-xs text-muted-foreground">{step.detail}</p>
+                          <p className="text-[12px] text-muted-foreground">{step.detail}</p>
                         </div>
                         {i < currentStep && (
-                          <span className="text-xs font-medium text-emerald-600">Done</span>
+                          <span className="text-[12px] font-medium text-emerald-600">Done</span>
                         )}
                         {i === currentStep && (
                           <motion.div
                             animate={{ opacity: [0.4, 1, 0.4] }}
                             transition={{ repeat: Infinity, duration: 1.5 }}
-                            className="h-2 w-2 rounded-full bg-primary"
+                            className="h-2 w-2 rounded-full bg-foreground"
                           />
                         )}
                       </motion.div>
@@ -197,21 +196,21 @@ export default function AgentDemo() {
                     {mockResults.map((result) => (
                       <div
                         key={result.title}
-                        className="rounded-lg border border-border p-4 transition-colors hover:border-primary/30"
+                        className="rounded-xl bg-accent p-4 transition-colors hover:bg-border/50"
                       >
                         <div className="mb-1 flex items-center gap-2">
                           <p className="text-sm font-semibold text-foreground">{result.title}</p>
-                          <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground">
+                          <span className="rounded-full bg-white px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
                             {result.tag}
                           </span>
                         </div>
                         <p className="text-sm text-muted-foreground">{result.snippet}</p>
                       </div>
                     ))}
-                    <div className="pt-2 text-center">
+                    <div className="pt-3 text-center">
                       <a
                         href="https://console.cloudsway.ai"
-                        className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+                        className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline"
                       >
                         Try it yourself — Get API key free
                         <ArrowRight size={14} />

@@ -78,33 +78,32 @@ export default function Capabilities() {
   const active = tabs.find((t) => t.id === activeTab)!;
 
   return (
-    <section id="capabilities" className="bg-muted py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="capabilities" className="bg-accent py-24 lg:py-32">
+      <div className="mx-auto max-w-[1440px] px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-12 text-center"
         >
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
+          <p className="mb-3 text-[13px] font-semibold uppercase tracking-widest text-primary">
             Capabilities
           </p>
-          <h2 className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">Submit a Task, Get a Deliverable</h2>
-          <p className="mx-auto max-w-2xl text-muted-foreground">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground lg:text-[2.5rem]">Submit a Task, Get a Deliverable</h2>
+          <p className="mx-auto max-w-2xl text-[16px] text-muted-foreground">
             Two powerful modes — Deep Research and Deep Analysis — backed by persistent memory and secure execution.
           </p>
         </motion.div>
 
-        {/* Tab buttons */}
         <div className="mb-8 flex justify-center">
-          <div className="inline-flex rounded-lg border border-border bg-white p-1">
+          <div className="inline-flex rounded-full bg-white p-1 shadow-sm">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`rounded-md px-6 py-2.5 text-sm font-medium transition-all ${
+                className={`rounded-full px-6 py-2.5 text-sm font-medium transition-all ${
                   activeTab === tab.id
-                    ? "bg-primary text-white shadow-sm"
+                    ? "bg-foreground text-white"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -114,7 +113,6 @@ export default function Capabilities() {
           </div>
         </div>
 
-        {/* Tab content */}
         <AnimatePresence mode="wait">
           <motion.div
             key={active.id}
@@ -122,30 +120,30 @@ export default function Capabilities() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.3 }}
-            className="rounded-2xl border border-border bg-white p-8 lg:p-10"
+            className="rounded-2xl bg-white p-8 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.08)] lg:p-10"
           >
             <div className="grid gap-10 lg:grid-cols-2">
               <div>
-                <span className="mb-3 inline-block rounded-md bg-accent px-3 py-1 text-xs font-semibold text-primary">
+                <span className="mb-3 inline-block rounded-full bg-accent px-3.5 py-1 text-[12px] font-semibold text-foreground">
                   {active.number} {active.label}
                 </span>
-                <h3 className="mb-4 text-2xl font-bold text-foreground">{active.title}</h3>
+                <h3 className="mb-4 text-2xl font-bold tracking-tight text-foreground">{active.title}</h3>
                 <p className="mb-6 leading-relaxed text-muted-foreground">{active.description}</p>
 
-                <div className="overflow-hidden rounded-lg bg-[#0f172a] p-4">
+                <div className="overflow-hidden rounded-xl bg-[#0f0f0f] p-5">
                   <pre className="overflow-x-auto text-[13px] leading-relaxed">
-                    <code className="text-slate-300 whitespace-pre">{active.code}</code>
+                    <code className="text-white/80 whitespace-pre">{active.code}</code>
                   </pre>
                 </div>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {active.features.map((f, i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-4 rounded-lg border border-border p-4 transition-colors hover:bg-muted"
+                    className="flex items-start gap-4 rounded-xl p-4 transition-colors hover:bg-accent"
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent text-primary">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent text-foreground">
                       {f.icon}
                     </div>
                     <div>
@@ -159,7 +157,6 @@ export default function Capabilities() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Base capabilities */}
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {baseCapabilities.map((cap, i) => (
             <motion.div
@@ -168,9 +165,9 @@ export default function Capabilities() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="rounded-xl border border-border bg-white p-6 transition-shadow hover:shadow-md"
+              className="rounded-2xl bg-white p-6 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.06)] transition-shadow hover:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.1)]"
             >
-              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-accent text-primary">
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-foreground">
                 {cap.icon}
               </div>
               <p className="mb-1 font-semibold text-foreground">{cap.title}</p>

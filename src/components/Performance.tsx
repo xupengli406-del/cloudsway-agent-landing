@@ -11,21 +11,21 @@ const stats = [
 
 export default function Performance() {
   return (
-    <section id="performance" className="bg-white py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="performance" className="bg-white py-24 lg:py-32">
+      <div className="mx-auto max-w-[1440px] px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-16 text-center"
         >
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
+          <p className="mb-3 text-[13px] font-semibold uppercase tracking-widest text-primary">
             Performance
           </p>
-          <h2 className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground lg:text-[2.5rem]">
             Performance Highlights
           </h2>
-          <p className="mx-auto max-w-2xl text-muted-foreground">
+          <p className="mx-auto max-w-2xl text-[16px] text-muted-foreground">
             Based on internal benchmarks covering result quality, execution process, and developer experience.
           </p>
         </motion.div>
@@ -38,11 +38,11 @@ export default function Performance() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="rounded-2xl border border-border bg-gradient-to-b from-accent to-white p-8 text-center"
+              className="rounded-2xl bg-accent p-8 text-center"
             >
-              <p className="mb-2 text-4xl font-bold text-primary lg:text-5xl">{stat.value}</p>
+              <p className="mb-2 text-4xl font-bold text-foreground lg:text-5xl">{stat.value}</p>
               <p className="font-medium text-foreground">{stat.label}</p>
-              <p className="mt-1 text-xs text-muted-foreground">{stat.sub}</p>
+              <p className="mt-1 text-[12px] text-muted-foreground">{stat.sub}</p>
             </motion.div>
           ))}
         </div>
@@ -56,7 +56,7 @@ export default function Performance() {
         >
           <a
             href="https://docs.cloudsway.ai/benchmarks"
-            className="text-sm font-medium text-primary transition-colors hover:text-primary-hover"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
             View full evaluation report &#x2192;
           </a>

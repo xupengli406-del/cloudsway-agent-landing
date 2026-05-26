@@ -69,22 +69,22 @@ const plans = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="bg-muted py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="pricing" className="bg-accent py-24 lg:py-32">
+      <div className="mx-auto max-w-[1440px] px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-16 text-center"
         >
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
+          <p className="mb-3 text-[13px] font-semibold uppercase tracking-widest text-primary">
             Pricing
           </p>
-          <h2 className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground lg:text-[2.5rem]">
             Pay Only for What You Use
           </h2>
-          <p className="mx-auto max-w-2xl text-muted-foreground">
-            Usage-based pricing on atomic capabilities. No hidden fees, no markup — full transparency on every request.
+          <p className="mx-auto max-w-2xl text-[16px] text-muted-foreground">
+            Usage-based pricing on atomic capabilities. No hidden fees — full transparency on every request.
           </p>
         </motion.div>
 
@@ -95,14 +95,14 @@ export default function Pricing() {
           className="mb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
         >
           {capabilities.map((cap) => (
-            <div key={cap.name} className="rounded-xl border border-border bg-white p-5">
-              <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-primary">
+            <div key={cap.name} className="rounded-2xl bg-white p-5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.06)]">
+              <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-accent text-foreground">
                 <cap.icon size={18} />
               </div>
               <p className="text-sm font-semibold text-foreground">{cap.name}</p>
-              <p className="mt-1 text-lg font-bold text-primary">{cap.price}</p>
-              <p className="text-xs text-muted-foreground">{cap.unit}</p>
-              <p className="mt-2 text-xs text-muted-foreground">{cap.description}</p>
+              <p className="mt-1 text-lg font-bold text-foreground">{cap.price}</p>
+              <p className="text-[12px] text-muted-foreground">{cap.unit}</p>
+              <p className="mt-2 text-[12px] text-muted-foreground">{cap.description}</p>
             </div>
           ))}
         </motion.div>
@@ -115,35 +115,35 @@ export default function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className={`relative overflow-hidden rounded-2xl bg-white p-8 lg:p-10 ${
+              className={`relative overflow-hidden rounded-2xl p-8 lg:p-10 ${
                 plan.highlighted
-                  ? "border-2 border-primary shadow-lg"
-                  : "border border-border"
+                  ? "bg-foreground text-white shadow-[0_16px_48px_-12px_rgba(0,0,0,0.3)]"
+                  : "bg-white shadow-[0_4px_16px_-4px_rgba(0,0,0,0.06)]"
               }`}
             >
               {plan.badge && (
-                <div className="absolute right-4 top-4 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                <div className="absolute right-4 top-4 rounded-full bg-primary px-3 py-1 text-[11px] font-semibold text-white">
                   {plan.badge}
                 </div>
               )}
-              <h3 className="mb-1 text-xl font-bold text-foreground">{plan.name}</h3>
-              <p className="mb-6 text-sm text-muted-foreground">{plan.subtitle}</p>
+              <h3 className={`mb-1 text-xl font-bold ${plan.highlighted ? "text-white" : "text-foreground"}`}>{plan.name}</h3>
+              <p className={`mb-6 text-sm ${plan.highlighted ? "text-white/60" : "text-muted-foreground"}`}>{plan.subtitle}</p>
 
               <div className="mb-1 flex items-baseline gap-1">
-                <span className="text-4xl font-bold text-foreground">{plan.price}</span>
+                <span className={`text-4xl font-bold ${plan.highlighted ? "text-white" : "text-foreground"}`}>{plan.price}</span>
                 {plan.priceUnit && (
-                  <span className="text-sm text-muted-foreground">{plan.priceUnit}</span>
+                  <span className={`text-sm ${plan.highlighted ? "text-white/60" : "text-muted-foreground"}`}>{plan.priceUnit}</span>
                 )}
               </div>
-              <p className="mb-8 text-xs text-muted-foreground">{plan.note}</p>
+              <p className={`mb-8 text-[12px] ${plan.highlighted ? "text-white/50" : "text-muted-foreground"}`}>{plan.note}</p>
 
               <ul className="mb-8 space-y-3">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3 text-sm text-foreground">
+                  <li key={feature} className={`flex items-start gap-3 text-sm ${plan.highlighted ? "text-white/80" : "text-foreground"}`}>
                     <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs ${
                       plan.highlighted
-                        ? "bg-primary/10 text-primary"
-                        : "bg-muted text-muted-foreground"
+                        ? "bg-white/10 text-white"
+                        : "bg-accent text-foreground"
                     }`}>
                       <Check size={12} />
                     </span>
@@ -154,10 +154,10 @@ export default function Pricing() {
 
               <a
                 href={plan.ctaHref}
-                className={`inline-flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-medium transition-colors ${
+                className={`inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[14px] font-medium transition-all ${
                   plan.highlighted
-                    ? "bg-primary text-white hover:bg-primary-hover"
-                    : "border border-border bg-white text-foreground hover:bg-muted"
+                    ? "bg-white text-foreground hover:opacity-90"
+                    : "bg-foreground text-white hover:opacity-80"
                 }`}
               >
                 {plan.cta}

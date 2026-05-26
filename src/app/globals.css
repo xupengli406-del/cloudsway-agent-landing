@@ -2,14 +2,14 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0f172a;
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
-  --muted: #f8fafc;
-  --muted-foreground: #64748b;
-  --border: #e2e8f0;
+  --foreground: #171717;
+  --primary: #2D68FF;
+  --primary-hover: #1a52e0;
+  --muted: #fafafa;
+  --muted-foreground: #6b7280;
+  --border: #f0f0f0;
   --card: #ffffff;
-  --accent: #eff6ff;
+  --accent: #f5f7fa;
 }
 
 @theme inline {
@@ -22,7 +22,7 @@
   --color-border: var(--border);
   --color-card: var(--card);
   --color-accent: var(--accent);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -34,4 +34,8 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.025em;
 }

@@ -16,11 +16,11 @@ export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-white/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <a href="/" className="flex items-center gap-2 text-lg font-semibold text-foreground">
+    <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-xl">
+      <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-8">
+        <a href="/" className="flex items-center gap-2.5 text-lg font-semibold tracking-tight text-foreground">
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="shrink-0">
-            <rect width="28" height="28" rx="6" fill="#2563EB" />
+            <rect width="28" height="28" rx="8" fill="#171717" />
             <path d="M8 14l4 4 8-8" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           Cloudsway
@@ -32,7 +32,7 @@ export default function Navigation() {
               key={l.href}
               href={l.href}
               {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="text-[15px] text-muted-foreground transition-colors hover:text-foreground"
             >
               {l.label}
             </a>
@@ -42,13 +42,13 @@ export default function Navigation() {
         <div className="hidden items-center gap-3 md:flex">
           <a
             href="mailto:contact@cloudsway.ai"
-            className="rounded-lg px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="px-4 py-2 text-[15px] text-muted-foreground transition-colors hover:text-foreground"
           >
             Contact
           </a>
           <a
             href="https://console.cloudsway.ai"
-            className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-hover"
+            className="rounded-full bg-foreground px-5 py-2.5 text-[14px] font-medium text-white transition-opacity hover:opacity-80"
           >
             Get Started
           </a>
@@ -71,25 +71,25 @@ export default function Navigation() {
             exit={{ height: 0, opacity: 0 }}
             className="overflow-hidden border-t border-border bg-white md:hidden"
           >
-            <div className="flex flex-col gap-1 px-6 py-4">
+            <div className="flex flex-col gap-1 px-8 py-4">
               {navLinks.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
                   {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  className="rounded-lg px-3 py-2.5 text-[15px] text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {l.label}
                 </a>
               ))}
               <div className="mt-3 flex flex-col gap-2 border-t border-border pt-3">
-                <a href="mailto:contact@cloudsway.ai" className="rounded-lg px-3 py-2 text-sm text-muted-foreground">
+                <a href="mailto:contact@cloudsway.ai" className="px-3 py-2.5 text-[15px] text-muted-foreground">
                   Contact
                 </a>
                 <a
                   href="https://console.cloudsway.ai"
-                  className="rounded-lg bg-primary px-3 py-2 text-center text-sm font-medium text-white"
+                  className="rounded-full bg-foreground px-3 py-2.5 text-center text-[14px] font-medium text-white"
                 >
                   Get Started
                 </a>
