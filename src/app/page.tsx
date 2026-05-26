@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import AgentDemo from "@/components/AgentDemo";
 import HowItWorks from "@/components/HowItWorks";
 import Capabilities from "@/components/Capabilities";
 import DeveloperExperience from "@/components/DeveloperExperience";
@@ -16,6 +17,7 @@ export default function Home() {
       <Navigation />
       <main>
         <Hero />
+        <AgentDemo />
         <HowItWorks />
         <Capabilities />
         <DeveloperExperience />

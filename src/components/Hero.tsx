@@ -63,11 +63,11 @@ export default function Hero() {
               Cloudsway Agent API
             </p>
             <h1 className="mb-6 text-4xl font-bold leading-tight text-foreground lg:text-5xl xl:text-[3.25rem]">
-              Run AI Agents with a single API call.{" "}
-              <span className="text-primary">No infrastructure required.</span>
+              AI Agents that remember, reason, and{" "}
+              <span className="text-primary">deliver.</span>
             </h1>
             <p className="mb-8 max-w-lg text-lg leading-relaxed text-muted-foreground">
-              Fully managed Agent API. AI autonomously searches, analyzes, and executes — delivering complete results. Integrate in minutes.
+              Submit complex research tasks. Get structured deliverables. Your agent learns and improves with every interaction.
             </p>
             <div className="flex flex-wrap gap-3">
               <a

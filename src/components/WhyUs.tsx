@@ -4,52 +4,59 @@ import { motion } from "framer-motion";
 
 const rows = [
   {
-    dimension: "Infrastructure",
-    selfBuild: "Build and maintain yourself",
-    workflow: "Requires configuration",
-    cloudsway: "Fully managed, API-ready",
+    dimension: "Persistent Memory",
+    selfBuild: "Build yourself (complex)",
+    workflow: "None or limited",
+    cloudsway: "Built-in thread-based memory — agent learns over time",
     cloudswayBest: true,
   },
   {
-    dimension: "Search",
+    dimension: "Output Quality",
+    selfBuild: "Depends on your implementation",
+    workflow: "Template-based output",
+    cloudsway: "Full research reports with citations & charts",
+    cloudswayBest: true,
+  },
+  {
+    dimension: "Code Execution",
+    selfBuild: "Build sandbox yourself",
+    workflow: "None / Plugin-based",
+    cloudsway: "Built-in secure sandbox — code, files, visualization",
+    cloudswayBest: true,
+  },
+  {
+    dimension: "Search & Data",
     selfBuild: "Third-party procurement",
     workflow: "Third-party procurement",
     cloudsway: "Proprietary engine, natively integrated",
     cloudswayBest: true,
   },
   {
-    dimension: "Execution Env",
-    selfBuild: "Build sandbox yourself",
-    workflow: "None / Limited",
-    cloudsway: "Built-in secure sandbox",
-    cloudswayBest: true,
-  },
-  {
     dimension: "Model Flexibility",
     selfBuild: "Single vendor lock-in",
     workflow: "Single vendor lock-in",
-    cloudsway: "Multi-model orchestration",
+    cloudsway: "Multi-model — GPT-4, Claude, Gemini, and more",
     cloudswayBest: true,
   },
   {
-    dimension: "Task Planning",
-    selfBuild: "Manual orchestration",
-    workflow: "Fixed workflow",
-    cloudsway: "Auto-decompose & parallel execution",
+    dimension: "Custom Tools",
+    selfBuild: "Full control (high effort)",
+    workflow: "Plugin marketplace",
+    cloudsway: "Function Call + MCP — bring your own tools",
     cloudswayBest: true,
   },
   {
-    dimension: "Memory",
-    selfBuild: "Build yourself",
-    workflow: "None",
-    cloudsway: "Built-in long-term memory",
+    dimension: "Infrastructure",
+    selfBuild: "Build and maintain everything",
+    workflow: "Partial — still need hosting",
+    cloudsway: "Fully managed, zero infrastructure",
     cloudswayBest: true,
   },
   {
     dimension: "Time to Integrate",
-    selfBuild: "Weeks",
+    selfBuild: "Weeks to months",
     workflow: "Days",
-    cloudsway: "Minutes",
+    cloudsway: "Minutes — 3 lines of code",
     cloudswayBest: true,
   },
 ];
@@ -88,10 +95,10 @@ export default function WhyUs() {
                   Dimension
                 </th>
                 <th className="border-b border-border bg-muted px-6 py-4 text-left text-sm font-medium text-muted-foreground">
-                  Self-built Agent
+                  Build Your Own Agent
                 </th>
                 <th className="border-b border-border bg-muted px-6 py-4 text-left text-sm font-medium text-muted-foreground">
-                  Workflow Framework
+                  Coze / Dify / LangGraph
                 </th>
                 <th className="border-b border-border bg-primary/5 px-6 py-4 text-left text-sm font-semibold text-primary">
                   Cloudsway Agent API &#x2726;

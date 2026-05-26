@@ -67,10 +67,10 @@ const tabs = [
 ];
 
 const baseCapabilities = [
-  { icon: <Database size={18} />, title: "Agent Memory", desc: "Cross-session persistent memory that accumulates domain knowledge" },
-  { icon: <FileText size={18} />, title: "File Processing", desc: "PDF, Word, PPT, CSV, and code — multi-format seamless import" },
-  { icon: <Box size={18} />, title: "Sandbox Execution", desc: "Secure isolated code execution and file generation environment" },
-  { icon: <Cpu size={18} />, title: "Multi-model Support", desc: "Flexible model orchestration across providers — no vendor lock-in" },
+  { icon: <Database size={18} />, title: "Persistent Memory", desc: "Thread-based cross-session memory — your agent accumulates knowledge and gets smarter over time" },
+  { icon: <Box size={18} />, title: "Secure Sandbox", desc: "Built-in code execution, file processing, and chart generation — no infrastructure to manage" },
+  { icon: <FileText size={18} />, title: "Multi-file Processing", desc: "Upload PDFs, spreadsheets, presentations, and code as research context" },
+  { icon: <Cpu size={18} />, title: "Multi-model Selection", desc: "Choose the best model for each task — GPT-4, Claude, Gemini, and more" },
 ];
 
 export default function Capabilities() {
@@ -87,11 +87,11 @@ export default function Capabilities() {
           className="mb-12 text-center"
         >
           <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
-            What We Offer
+            Capabilities
           </p>
-          <h2 className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">Core Capabilities</h2>
+          <h2 className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">Submit a Task, Get a Deliverable</h2>
           <p className="mx-auto max-w-2xl text-muted-foreground">
-            Two powerful modes — Deep Research and Deep Analysis — backed by a complete infrastructure stack.
+            Two powerful modes — Deep Research and Deep Analysis — backed by persistent memory and secure execution.
           </p>
         </motion.div>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, FileText } from "lucide-react";
+import { ArrowRight, FileText, Calendar } from "lucide-react";
 
 export default function BottomCTA() {
   return (
@@ -26,6 +26,13 @@ export default function BottomCTA() {
             >
               Get Started Free
               <ArrowRight size={16} />
+            </a>
+            <a
+              href="https://console.cloudsway.ai/demo"
+              className="inline-flex items-center gap-2 rounded-lg border border-primary bg-white px-8 py-3.5 text-sm font-medium text-primary transition-colors hover:bg-primary/5"
+            >
+              <Calendar size={16} />
+              Book a Demo
             </a>
             <a
               href="https://docs.cloudsway.ai"

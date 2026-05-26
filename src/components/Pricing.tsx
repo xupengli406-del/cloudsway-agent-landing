@@ -1,41 +1,48 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Search, Cpu, HardDrive, FileText } from "lucide-react";
+
+const capabilities = [
+  { icon: Cpu, name: "Tokens", unit: "per 1M tokens", price: "From $2.50", description: "Input & output tokens for model reasoning" },
+  { icon: Search, name: "Search", unit: "per 1K calls", price: "From $5.00", description: "Web search, finance data, people search" },
+  { icon: HardDrive, name: "Sandbox", unit: "per hour", price: "From $0.50", description: "Code execution & data processing" },
+  { icon: FileText, name: "File Processing", unit: "per 100 files", price: "From $1.00", description: "PDF, PPT, Word, CSV parsing" },
+];
 
 const plans = [
   {
-    name: "Pay As You Go",
-    subtitle: "For developers and startups",
-    price: "$0.05",
-    priceUnit: "per query",
-    note: "No minimum commitment",
+    name: "Free Tier",
+    subtitle: "For developers exploring",
+    price: "$0",
+    priceUnit: "to start",
+    note: "No credit card required",
     highlighted: false,
     features: [
-      "Deep Research & Deep Analysis modes",
-      "Up to 20 sources per research task",
+      "$10 free credits on signup",
+      "Deep Research & Deep Analysis",
       "Standard model selection",
       "Community support",
-      "1,000 free credits to start",
+      "Up to 20 sources per task",
     ],
     cta: "Get Started Free",
     ctaHref: "https://console.cloudsway.ai",
   },
   {
     name: "Pro",
-    subtitle: "For teams and growing products",
+    subtitle: "For teams and products",
     price: "$499",
     priceUnit: "/ month",
-    note: "Includes $600 in credits",
+    note: "Includes $600 in usage credits",
     highlighted: true,
     badge: "Popular",
     features: [
-      "Everything in Pay As You Go",
-      "Unlimited sources per task",
-      "Priority model access & faster execution",
+      "Everything in Free Tier",
       "Cross-session Agent Memory",
-      "Dedicated support & SLA guarantee",
-      "Custom Agent capabilities on request",
+      "Unlimited sources per task",
+      "Priority model access",
+      "Custom tools & Function Call",
+      "Dedicated support & SLA",
     ],
     cta: "Start Pro Trial",
     ctaHref: "https://console.cloudsway.ai",
@@ -50,13 +57,13 @@ const plans = [
     features: [
       "Everything in Pro",
       "Dedicated infrastructure",
-      "Custom model fine-tuning",
-      "On-premise deployment options",
+      "Custom model integration",
+      "On-premise deployment",
       "Premium SLA & priority support",
-      "Custom integrations & workflows",
+      "Custom workflows & integrations",
     ],
-    cta: "Contact Sales",
-    ctaHref: "mailto:contact@cloudsway.ai",
+    cta: "Book a Demo",
+    ctaHref: "https://console.cloudsway.ai/demo",
   },
 ];
 
@@ -74,11 +81,30 @@ export default function Pricing() {
             Pricing
           </p>
           <h2 className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">
-            Simple, Transparent Pricing
+            Pay Only for What You Use
           </h2>
           <p className="mx-auto max-w-2xl text-muted-foreground">
-            Start free and scale as you grow. Pay only for what you use.
+            Usage-based pricing on atomic capabilities. No hidden fees, no markup — full transparency on every request.
           </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {capabilities.map((cap) => (
+            <div key={cap.name} className="rounded-xl border border-border bg-white p-5">
+              <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-primary">
+                <cap.icon size={18} />
+              </div>
+              <p className="text-sm font-semibold text-foreground">{cap.name}</p>
+              <p className="mt-1 text-lg font-bold text-primary">{cap.price}</p>
+              <p className="text-xs text-muted-foreground">{cap.unit}</p>
+              <p className="mt-2 text-xs text-muted-foreground">{cap.description}</p>
+            </div>
+          ))}
         </motion.div>
 
         <div className="grid gap-6 lg:grid-cols-3">
