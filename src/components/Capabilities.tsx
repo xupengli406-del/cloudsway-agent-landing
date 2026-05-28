@@ -67,10 +67,10 @@ const tabs = [
 ];
 
 const baseCapabilities = [
-  { icon: <Database size={18} />, title: "Persistent Memory", desc: "Thread-based cross-session memory — your agent accumulates knowledge and gets smarter over time" },
-  { icon: <Box size={18} />, title: "Secure Sandbox", desc: "Built-in code execution, file processing, and chart generation — no infrastructure to manage" },
-  { icon: <FileText size={18} />, title: "Multi-file Processing", desc: "Upload PDFs, spreadsheets, presentations, and code as research context" },
-  { icon: <Cpu size={18} />, title: "Multi-model Selection", desc: "Choose the best model for each task — GPT-4, Claude, Gemini, and more" },
+  { icon: <Database size={18} />, title: "Persistent Memory", desc: "Thread-based stateful engine that accumulates context across sessions. Agent remembers preferences, research history, and domain knowledge — no need to repeat background." },
+  { icon: <Box size={18} />, title: "Secure Code Sandbox", desc: "Built-in isolated execution for Python, data analysis, chart generation, and computational modeling. Supports PDF/Word/PPT/Excel/CSV processing — zero infrastructure to manage." },
+  { icon: <FileText size={18} />, title: "End-to-end Delivery", desc: "Submit a task, get a deliverable. Agent autonomously plans steps, searches the web, parses documents, executes code, generates charts, and compiles structured reports." },
+  { icon: <Cpu size={18} />, title: "Multi-model Selection", desc: "Choose the best model for each task — GPT-5, Claude Opus, Gemini Pro, and more. Optimized routing for cost and quality." },
 ];
 
 export default function Capabilities() {
@@ -91,7 +91,7 @@ export default function Capabilities() {
           </p>
           <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground lg:text-[2.5rem]">Submit a Task, Get a Deliverable</h2>
           <p className="mx-auto max-w-2xl text-[16px] text-muted-foreground">
-            Two powerful modes — Deep Research and Deep Analysis — backed by persistent memory and secure execution.
+            Two powerful modes — Deep Research and Deep Analysis — backed by persistent memory, secure sandbox, and end-to-end task delivery.
           </p>
         </motion.div>
 

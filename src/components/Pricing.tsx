@@ -1,76 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Check, Search, Cpu, HardDrive, FileText } from "lucide-react";
+import { ArrowRight, Zap } from "lucide-react";
 
-const capabilities = [
-  { icon: Cpu, name: "Tokens", unit: "per 1M tokens", price: "From $2.50", description: "Input & output tokens for model reasoning" },
-  { icon: Search, name: "Search", unit: "per 1K calls", price: "From $5.00", description: "Web search, finance data, people search" },
-  { icon: HardDrive, name: "Sandbox", unit: "per hour", price: "From $0.50", description: "Code execution & data processing" },
-  { icon: FileText, name: "File Processing", unit: "per 100 files", price: "From $1.00", description: "PDF, PPT, Word, CSV parsing" },
+const models = [
+  { name: "Gemini 3 Flash", input: "$0.50", output: "$3.00" },
+  { name: "Gemini 3.1 Pro", input: "$2.00", output: "$12.00" },
+  { name: "GPT-5.4", input: "$2.50", output: "$15.00" },
+  { name: "GPT-5.5", input: "$5.00", output: "$30.00" },
+  { name: "Claude Sonnet 4.6", input: "$3.00", output: "$15.00" },
+  { name: "Claude Opus 4.7", input: "$5.00", output: "$25.00" },
 ];
 
-const plans = [
-  {
-    name: "Free Tier",
-    subtitle: "For developers exploring",
-    price: "$0",
-    priceUnit: "to start",
-    note: "No credit card required",
-    highlighted: false,
-    features: [
-      "$10 free credits on signup",
-      "Deep Research & Deep Analysis",
-      "Standard model selection",
-      "Community support",
-      "Up to 20 sources per task",
-    ],
-    cta: "Get Started Free",
-    ctaHref: "https://console.cloudsway.ai",
-  },
-  {
-    name: "Pro",
-    subtitle: "For teams and products",
-    price: "$499",
-    priceUnit: "/ month",
-    note: "Includes $600 in usage credits",
-    highlighted: true,
-    badge: "Popular",
-    features: [
-      "Everything in Free Tier",
-      "Cross-session Agent Memory",
-      "Unlimited sources per task",
-      "Priority model access",
-      "Custom tools & Function Call",
-      "Dedicated support & SLA",
-    ],
-    cta: "Start Pro Trial",
-    ctaHref: "https://console.cloudsway.ai",
-  },
-  {
-    name: "Enterprise",
-    subtitle: "For large-scale deployments",
-    price: "Custom",
-    priceUnit: "",
-    note: "Volume discounts available",
-    highlighted: false,
-    features: [
-      "Everything in Pro",
-      "Dedicated infrastructure",
-      "Custom model integration",
-      "On-premise deployment",
-      "Premium SLA & priority support",
-      "Custom workflows & integrations",
-    ],
-    cta: "Book a Demo",
-    ctaHref: "https://console.cloudsway.ai/demo",
-  },
+const typicalCosts = [
+  { label: "Quick Search", cost: "~$0.02" },
+  { label: "Pro Search", cost: "~$0.07" },
+  { label: "Deep Research", cost: "~$0.35" },
+  { label: "Advanced Deep Research", cost: "~$1.15" },
 ];
 
 export default function Pricing() {
   return (
     <section id="pricing" className="bg-accent py-24 lg:py-32">
       <div className="mx-auto max-w-[1440px] px-8">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,90 +34,217 @@ export default function Pricing() {
             Pricing
           </p>
           <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground lg:text-[2.5rem]">
-            Pay Only for What You Use
+            Agent is Free — Only Pay for What You Use
           </h2>
           <p className="mx-auto max-w-2xl text-[16px] text-muted-foreground">
-            Usage-based pricing on atomic capabilities. No hidden fees — full transparency on every request.
+            Transparent per-use pricing on models, search, and sandbox. No
+            platform fees, no hidden costs.
           </p>
         </motion.div>
 
+        {/* Typical Cost Reference */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          className="mb-12 rounded-2xl border border-primary/10 bg-primary/5 p-6"
         >
-          {capabilities.map((cap) => (
-            <div key={cap.name} className="rounded-2xl bg-white p-5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.06)]">
-              <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-accent text-foreground">
-                <cap.icon size={18} />
+          <div className="mb-4 flex items-center gap-2">
+            <Zap size={16} className="text-primary" />
+            <p className="text-sm font-semibold text-foreground">
+              Typical Cost Per Request
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {typicalCosts.map((item) => (
+              <div key={item.label}>
+                <p className="text-2xl font-bold text-foreground">
+                  {item.cost}
+                </p>
+                <p className="text-[12px] text-muted-foreground">
+                  {item.label}
+                </p>
               </div>
-              <p className="text-sm font-semibold text-foreground">{cap.name}</p>
-              <p className="mt-1 text-lg font-bold text-foreground">{cap.price}</p>
-              <p className="text-[12px] text-muted-foreground">{cap.unit}</p>
-              <p className="mt-2 text-[12px] text-muted-foreground">{cap.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </motion.div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
-          {plans.map((plan, i) => (
-            <motion.div
-              key={plan.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`relative overflow-hidden rounded-2xl p-8 lg:p-10 ${
-                plan.highlighted
-                  ? "bg-foreground text-white shadow-[0_16px_48px_-12px_rgba(0,0,0,0.3)]"
-                  : "bg-white shadow-[0_4px_16px_-4px_rgba(0,0,0,0.06)]"
-              }`}
-            >
-              {plan.badge && (
-                <div className="absolute right-4 top-4 rounded-full bg-primary px-3 py-1 text-[11px] font-semibold text-white">
-                  {plan.badge}
+        {/* Model Pricing + Tools/Sandbox Grid */}
+        <div className="mb-12 grid gap-6 lg:grid-cols-3">
+          {/* Model Pricing Table */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl bg-white p-6 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.06)] lg:col-span-2"
+          >
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+              Model Pricing
+            </h3>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-gray-100">
+                    <th className="pb-3 pr-4 text-left font-semibold text-foreground">
+                      Model
+                    </th>
+                    <th className="pb-3 pr-4 text-left font-semibold text-foreground">
+                      Input / 1M tokens
+                    </th>
+                    <th className="pb-3 text-left font-semibold text-foreground">
+                      Output / 1M tokens
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {models.map((model) => (
+                    <tr
+                      key={model.name}
+                      className="border-b border-gray-50 last:border-0"
+                    >
+                      <td className="py-3 pr-4 font-medium text-foreground">
+                        {model.name}
+                      </td>
+                      <td className="py-3 pr-4 font-mono text-sm text-muted-foreground">
+                        {model.input}
+                      </td>
+                      <td className="py-3 font-mono text-sm text-muted-foreground">
+                        {model.output}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </motion.div>
+
+          {/* Tools & Sandbox */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="flex flex-col gap-6"
+          >
+            {/* Tools */}
+            <div className="rounded-2xl bg-white p-6 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.06)]">
+              <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                Tools
+              </h3>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-foreground">Web Search</span>
+                  <span className="font-mono text-sm font-semibold text-foreground">
+                    $0.005 / call
+                  </span>
                 </div>
-              )}
-              <h3 className={`mb-1 text-xl font-bold ${plan.highlighted ? "text-white" : "text-foreground"}`}>{plan.name}</h3>
-              <p className={`mb-6 text-sm ${plan.highlighted ? "text-white/60" : "text-muted-foreground"}`}>{plan.subtitle}</p>
-
-              <div className="mb-1 flex items-baseline gap-1">
-                <span className={`text-4xl font-bold ${plan.highlighted ? "text-white" : "text-foreground"}`}>{plan.price}</span>
-                {plan.priceUnit && (
-                  <span className={`text-sm ${plan.highlighted ? "text-white/60" : "text-muted-foreground"}`}>{plan.priceUnit}</span>
-                )}
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-foreground">URL Fetch</span>
+                  <span className="font-mono text-sm font-semibold text-foreground">
+                    $0.0005 / call
+                  </span>
+                </div>
               </div>
-              <p className={`mb-8 text-[12px] ${plan.highlighted ? "text-white/50" : "text-muted-foreground"}`}>{plan.note}</p>
+            </div>
 
-              <ul className="mb-8 space-y-3">
-                {plan.features.map((feature) => (
-                  <li key={feature} className={`flex items-start gap-3 text-sm ${plan.highlighted ? "text-white/80" : "text-foreground"}`}>
-                    <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs ${
-                      plan.highlighted
-                        ? "bg-white/10 text-white"
-                        : "bg-accent text-foreground"
-                    }`}>
-                      <Check size={12} />
-                    </span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+            {/* Sandbox */}
+            <div className="rounded-2xl bg-white p-6 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.06)]">
+              <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                Sandbox
+              </h3>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-foreground">CPU</span>
+                  <span className="font-mono text-sm font-semibold text-foreground">
+                    $0.000014 / sec
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-foreground">Memory</span>
+                  <span className="font-mono text-sm font-semibold text-foreground">
+                    $0.0000045 / GB·sec
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-foreground">Storage</span>
+                  <span className="font-mono text-sm font-semibold text-foreground">
+                    Free
+                  </span>
+                </div>
+              </div>
+              <p className="mt-4 text-[12px] text-muted-foreground">
+                Per-second billing. Typical task (1 CPU + 1 GB, 30s) ≈ $0.0006
+              </p>
+            </div>
+          </motion.div>
+        </div>
 
-              <a
-                href={plan.ctaHref}
-                className={`inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[14px] font-medium transition-all ${
-                  plan.highlighted
-                    ? "bg-white text-foreground hover:opacity-90"
-                    : "bg-foreground text-white hover:opacity-80"
-                }`}
-              >
-                {plan.cta}
-                <ArrowRight size={16} />
-              </a>
-            </motion.div>
-          ))}
+        {/* Free Trial + Enterprise */}
+        <div className="grid gap-6 lg:grid-cols-2">
+          {/* Free Trial */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl bg-white p-8 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.06)]"
+          >
+            <h3 className="mb-2 text-xl font-bold text-foreground">
+              Free Trial
+            </h3>
+            <p className="mb-6 text-sm text-muted-foreground">
+              Start building today
+            </p>
+            <div className="mb-6">
+              <span className="text-4xl font-bold text-foreground">$5</span>
+              <span className="ml-2 text-sm text-muted-foreground">
+                free credits
+              </span>
+            </div>
+            <ul className="mb-8 space-y-2 text-sm text-foreground">
+              <li>• 30-day validity</li>
+              <li>• All presets and tools included</li>
+              <li>• No credit card required</li>
+              <li>• Pay-as-you-go after trial</li>
+            </ul>
+            <a
+              href="https://console.cloudsway.ai"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-[14px] font-medium text-white transition-all hover:opacity-80"
+            >
+              Start Free
+              <ArrowRight size={16} />
+            </a>
+          </motion.div>
+
+          {/* Enterprise */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="rounded-2xl bg-foreground p-8 text-white shadow-[0_16px_48px_-12px_rgba(0,0,0,0.3)]"
+          >
+            <h3 className="mb-2 text-xl font-bold">Enterprise</h3>
+            <p className="mb-6 text-sm text-white/60">
+              For large-scale deployments
+            </p>
+            <div className="mb-6">
+              <span className="text-4xl font-bold">Custom</span>
+            </div>
+            <ul className="mb-8 space-y-2 text-sm text-white/80">
+              <li>• Monthly volume &gt;100K calls</li>
+              <li>• Dedicated infrastructure</li>
+              <li>• Custom model integration</li>
+              <li>• On-premise deployment option</li>
+              <li>• Premium SLA & priority support</li>
+            </ul>
+            <a
+              href="https://console.cloudsway.ai/demo"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-[14px] font-medium text-foreground transition-all hover:opacity-90"
+            >
+              Contact Sales
+              <ArrowRight size={16} />
+            </a>
+          </motion.div>
         </div>
       </div>
     </section>
