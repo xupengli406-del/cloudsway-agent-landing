@@ -35,7 +35,7 @@ const rows = [
     dimension: "Model Flexibility",
     selfBuild: "Single vendor lock-in",
     workflow: "Single vendor lock-in",
-    cloudsway: "Multi-model — GPT-4, Claude, Gemini, and more",
+    cloudsway: "Multi-model — GPT-5, Claude Opus, Gemini Pro, and more",
     cloudswayBest: true,
   },
   {

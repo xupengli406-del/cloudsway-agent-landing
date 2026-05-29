@@ -13,11 +13,13 @@ export default function BottomCTA() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-white lg:text-[2.5rem]">
-            Let AI Agents Work for You
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-white lg:text-[2.5rem] lg:leading-tight">
+            Building an AI demo is easy.
+            <br />
+            Making it work in the real world is not.
           </h2>
           <p className="mx-auto mb-10 max-w-xl text-[17px] text-white/60">
-            One API call. Complete research report. Say goodbye to repetitive work — start today.
+            Everything your agents need to run reliably — from search to secure execution. Try it out.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
