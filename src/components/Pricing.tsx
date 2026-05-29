@@ -171,6 +171,12 @@ export default function Pricing() {
                     Free
                   </span>
                 </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-foreground">Network</span>
+                  <span className="font-mono text-sm font-semibold text-foreground">
+                    $1.80 / GB
+                  </span>
+                </div>
               </div>
               <p className="mt-4 text-[12px] text-muted-foreground">
                 Per-second billing. Typical task (1 CPU + 1 GB, 30s) ≈ $0.0006
