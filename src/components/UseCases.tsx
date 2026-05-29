@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingCart, TrendingUp, Scale } from "lucide-react";
+import { fadeInUp, staggerContainer, staggerItem } from "@/lib/motion";
 
 const tabs = [
   { id: "ecommerce", label: "E-commerce", icon: ShoppingCart },
@@ -83,8 +84,9 @@ export default function UseCases() {
     <section id="use-cases" className="bg-white py-24 lg:py-32">
       <div className="mx-auto max-w-[1440px] px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
           className="mb-12 text-center"
         >
@@ -100,23 +102,28 @@ export default function UseCases() {
           </p>
         </motion.div>
 
-        {/* Tabs */}
+        {/* Tabs with layoutId */}
         <div className="mb-10 flex justify-center">
-          <div className="inline-flex gap-2 rounded-full bg-accent p-1.5">
+          <div className="relative inline-flex gap-2 rounded-full bg-accent p-1.5">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               return (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
-                    activeTab === tab.id
-                      ? "bg-foreground text-white shadow-sm"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
+                  className="relative inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-colors"
                 >
-                  <Icon size={16} />
-                  {tab.label}
+                  {activeTab === tab.id && (
+                    <motion.div
+                      layoutId="usecase-tab-indicator"
+                      className="absolute inset-0 rounded-full bg-foreground shadow-sm"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                  <span className={`relative z-10 inline-flex items-center gap-2 ${activeTab === tab.id ? "text-white" : "text-muted-foreground hover:text-foreground"}`}>
+                    <Icon size={16} />
+                    {tab.label}
+                  </span>
                 </button>
               );
             })}
@@ -127,19 +134,20 @@ export default function UseCases() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: -12, filter: "blur(4px)" }}
+            transition={{ duration: 0.35, ease: [0.25, 0.4, 0.25, 1] }}
             className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
           >
             {scenarios[activeTab].map((scenario, i) => (
               <motion.div
                 key={scenario.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="flex flex-col rounded-2xl bg-accent p-7 transition-all hover:shadow-[0_8px_32px_-8px_rgba(0,0,0,0.08)]"
+                initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ delay: i * 0.08, duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
+                whileHover={{ y: -4, boxShadow: "0 20px 40px -12px rgba(0,0,0,0.1)" }}
+                className="flex flex-col rounded-2xl bg-accent p-7 transition-[background-color]"
               >
                 <h3 className="mb-3 text-lg font-bold tracking-tight text-foreground">
                   {scenario.title}

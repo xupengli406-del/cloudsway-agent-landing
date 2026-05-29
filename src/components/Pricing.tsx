@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Zap } from "lucide-react";
+import { fadeInUp, staggerContainer, staggerItem } from "@/lib/motion";
 
 const models = [
   { name: "Gemini 3 Flash", input: "$0.50", output: "$3.00" },
@@ -25,8 +26,9 @@ export default function Pricing() {
       <div className="mx-auto max-w-[1440px] px-8">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
           className="mb-16 text-center"
         >
@@ -44,8 +46,9 @@ export default function Pricing() {
 
         {/* Typical Cost Reference */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
           className="mb-12 rounded-2xl border border-primary/10 bg-primary/5 p-6"
         >
@@ -70,12 +73,16 @@ export default function Pricing() {
         </motion.div>
 
         {/* Model Pricing + Tools/Sandbox Grid */}
-        <div className="mb-12 grid gap-6 lg:grid-cols-3">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mb-12 grid gap-6 lg:grid-cols-3"
+        >
           {/* Model Pricing Table */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            variants={staggerItem}
             className="rounded-2xl bg-white p-6 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.06)] lg:col-span-2"
           >
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
@@ -120,14 +127,14 @@ export default function Pricing() {
 
           {/* Tools & Sandbox */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            variants={staggerItem}
             className="flex flex-col gap-6"
           >
             {/* Tools */}
-            <div className="rounded-2xl bg-white p-6 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.06)]">
+            <motion.div
+              whileHover={{ y: -4, boxShadow: "0 20px 40px -12px rgba(0,0,0,0.1)" }}
+              className="rounded-2xl bg-white p-6 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.06)]"
+            >
               <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                 Tools
               </h3>
@@ -145,10 +152,13 @@ export default function Pricing() {
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Sandbox */}
-            <div className="rounded-2xl bg-white p-6 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.06)]">
+            <motion.div
+              whileHover={{ y: -4, boxShadow: "0 20px 40px -12px rgba(0,0,0,0.1)" }}
+              className="rounded-2xl bg-white p-6 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.06)]"
+            >
               <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                 Sandbox
               </h3>
@@ -181,17 +191,22 @@ export default function Pricing() {
               <p className="mt-4 text-[12px] text-muted-foreground">
                 Per-second billing. Typical task (1 CPU + 1 GB, 30s) ≈ $0.0006
               </p>
-            </div>
+            </motion.div>
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* Free Trial + Enterprise */}
-        <div className="grid gap-6 lg:grid-cols-2">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid gap-6 lg:grid-cols-2"
+        >
           {/* Free Trial */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            variants={staggerItem}
+            whileHover={{ y: -4, boxShadow: "0 20px 40px -12px rgba(0,0,0,0.08)" }}
             className="rounded-2xl bg-white p-8 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.06)]"
           >
             <h3 className="mb-2 text-xl font-bold text-foreground">
@@ -223,10 +238,8 @@ export default function Pricing() {
 
           {/* Enterprise */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            variants={staggerItem}
+            whileHover={{ y: -4, boxShadow: "0 20px 48px -12px rgba(0,0,0,0.35)" }}
             className="rounded-2xl bg-foreground p-8 text-white shadow-[0_16px_48px_-12px_rgba(0,0,0,0.3)]"
           >
             <h3 className="mb-2 text-xl font-bold">Enterprise</h3>
@@ -251,7 +264,7 @@ export default function Pricing() {
               <ArrowRight size={16} />
             </a>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

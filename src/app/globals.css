@@ -39,3 +39,37 @@ html {
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.025em;
 }
+
+.section-divider {
+  height: 1px;
+  max-width: 56rem;
+  margin-inline: auto;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+}
+
+.glow {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 9999px;
+  opacity: 0.5;
+  filter: blur(120px);
+}
+
+.glow-blue {
+  background: radial-gradient(circle, rgba(45, 104, 255, 0.12), transparent 70%);
+}
+
+.glow-cyan {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.1), transparent 70%);
+}
+
+.glow-purple {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.1), transparent 70%);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { fadeInUp } from "@/lib/motion";
 
 const rows = [
   {
@@ -8,66 +9,70 @@ const rows = [
     selfBuild: "Build yourself (complex)",
     workflow: "None or limited",
     cloudsway: "Built-in thread-based memory — agent learns over time",
-    cloudswayBest: true,
   },
   {
     dimension: "Output Quality",
     selfBuild: "Depends on your implementation",
     workflow: "Template-based output",
     cloudsway: "Full research reports with citations & charts",
-    cloudswayBest: true,
   },
   {
     dimension: "Code Execution",
     selfBuild: "Build sandbox yourself",
     workflow: "None / Plugin-based",
     cloudsway: "Built-in secure sandbox — code, files, visualization",
-    cloudswayBest: true,
   },
   {
     dimension: "Search & Data",
     selfBuild: "Third-party procurement",
     workflow: "Third-party procurement",
     cloudsway: "Proprietary engine, natively integrated",
-    cloudswayBest: true,
   },
   {
     dimension: "Model Flexibility",
     selfBuild: "Single vendor lock-in",
     workflow: "Single vendor lock-in",
     cloudsway: "Multi-model — GPT-5, Claude Opus, Gemini Pro, and more",
-    cloudswayBest: true,
   },
   {
     dimension: "Custom Tools",
     selfBuild: "Full control (high effort)",
     workflow: "Plugin marketplace",
     cloudsway: "Function Call + MCP — bring your own tools",
-    cloudswayBest: true,
   },
   {
     dimension: "Infrastructure",
     selfBuild: "Build and maintain everything",
     workflow: "Partial — still need hosting",
     cloudsway: "Fully managed, zero infrastructure",
-    cloudswayBest: true,
   },
   {
     dimension: "Time to Integrate",
     selfBuild: "Weeks to months",
     workflow: "Days",
     cloudsway: "Minutes — 3 lines of code",
-    cloudswayBest: true,
   },
 ];
+
+const ease = [0.25, 0.4, 0.25, 1] as const;
+
+const rowVariant = {
+  hidden: { opacity: 0, x: -12 },
+  visible: (i: number) => ({
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.4, delay: i * 0.06, ease },
+  }),
+};
 
 export default function WhyUs() {
   return (
     <section id="why-us" className="bg-accent py-24 lg:py-32">
       <div className="mx-auto max-w-[1440px] px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
           className="mb-16 text-center"
         >
@@ -83,8 +88,9 @@ export default function WhyUs() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
           className="overflow-x-auto"
         >
@@ -107,7 +113,15 @@ export default function WhyUs() {
             </thead>
             <tbody>
               {rows.map((row, i) => (
-                <tr key={i} className="transition-colors hover:bg-accent/50">
+                <motion.tr
+                  key={i}
+                  custom={i}
+                  variants={rowVariant}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="transition-colors hover:bg-accent/50"
+                >
                   <td className="border-t border-border/50 px-6 py-4 text-sm font-medium text-foreground">
                     {row.dimension}
                   </td>
@@ -120,7 +134,7 @@ export default function WhyUs() {
                   <td className="border-t border-border/50 bg-primary/[0.03] px-6 py-4 text-sm font-medium text-foreground">
                     {row.cloudsway}
                   </td>
-                </tr>
+                </motion.tr>
               ))}
             </tbody>
           </table>

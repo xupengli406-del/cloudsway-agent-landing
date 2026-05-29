@@ -18,6 +18,7 @@ import {
   Box,
   Cpu,
 } from "lucide-react";
+import { fadeInUp, staggerContainer, staggerItem } from "@/lib/motion";
 
 const tabs = [
   {
@@ -78,11 +79,13 @@ export default function Capabilities() {
   const active = tabs.find((t) => t.id === activeTab)!;
 
   return (
-    <section id="capabilities" className="bg-accent py-24 lg:py-32">
-      <div className="mx-auto max-w-[1440px] px-8">
+    <section id="capabilities" className="relative overflow-hidden bg-accent py-24 lg:py-32">
+      <div className="glow glow-blue absolute top-1/2 left-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2" />
+      <div className="relative mx-auto max-w-[1440px] px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
           className="mb-12 text-center"
         >
@@ -96,18 +99,23 @@ export default function Capabilities() {
         </motion.div>
 
         <div className="mb-8 flex justify-center">
-          <div className="inline-flex rounded-full bg-white p-1 shadow-sm">
+          <div className="relative inline-flex rounded-full bg-white p-1 shadow-sm">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`rounded-full px-6 py-2.5 text-sm font-medium transition-all ${
-                  activeTab === tab.id
-                    ? "bg-foreground text-white"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
+                className="relative rounded-full px-6 py-2.5 text-sm font-medium transition-colors"
               >
-                {tab.label}
+                {activeTab === tab.id && (
+                  <motion.div
+                    layoutId="cap-tab-indicator"
+                    className="absolute inset-0 rounded-full bg-foreground"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <span className={`relative z-10 ${activeTab === tab.id ? "text-white" : "text-muted-foreground hover:text-foreground"}`}>
+                  {tab.label}
+                </span>
               </button>
             ))}
           </div>
@@ -116,10 +124,10 @@ export default function Capabilities() {
         <AnimatePresence mode="wait">
           <motion.div
             key={active.id}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: -12, filter: "blur(4px)" }}
+            transition={{ duration: 0.35, ease: [0.25, 0.4, 0.25, 1] }}
             className="rounded-2xl bg-white p-8 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.08)] lg:p-10"
           >
             <div className="grid gap-10 lg:grid-cols-2">
@@ -132,15 +140,18 @@ export default function Capabilities() {
 
                 <div className="overflow-hidden rounded-xl bg-[#0f0f0f] p-5">
                   <pre className="overflow-x-auto text-[13px] leading-relaxed">
-                    <code className="text-white/80 whitespace-pre">{active.code}</code>
+                    <code className="whitespace-pre text-white/80">{active.code}</code>
                   </pre>
                 </div>
               </div>
 
               <div className="space-y-3">
                 {active.features.map((f, i) => (
-                  <div
-                    key={i}
+                  <motion.div
+                    key={f.title}
+                    initial={{ opacity: 0, x: 12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.06, duration: 0.4 }}
                     className="flex items-start gap-4 rounded-xl p-4 transition-colors hover:bg-accent"
                   >
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent text-foreground">
@@ -150,22 +161,27 @@ export default function Capabilities() {
                       <p className="font-semibold text-foreground">{f.title}</p>
                       <p className="mt-1 text-sm text-muted-foreground">{f.desc}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
           </motion.div>
         </AnimatePresence>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+        >
           {baseCapabilities.map((cap, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="rounded-2xl bg-white p-6 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.06)] transition-shadow hover:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.1)]"
+              variants={staggerItem}
+              whileHover={{ y: -4, boxShadow: "0 20px 40px -12px rgba(0,0,0,0.1)" }}
+              transition={{ duration: 0.2 }}
+              className="rounded-2xl bg-white p-6 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.06)]"
             >
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-foreground">
                 {cap.icon}
@@ -174,7 +190,7 @@ export default function Capabilities() {
               <p className="text-sm text-muted-foreground">{cap.desc}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
